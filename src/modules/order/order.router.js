@@ -8,7 +8,7 @@ import express from "express";
 /**
  * @swagger
  * tags:
- * name: Order
+ * - name: Order
  * description: Checkout and Order management
  */
 

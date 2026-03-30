@@ -6,7 +6,7 @@ import passport from "passport";
 /**
  * @swagger
  * tags:
- * name: Auth
+ * - name: Auth
  * description: Login and Signup operations
  */
 

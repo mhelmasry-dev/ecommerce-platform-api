@@ -8,7 +8,7 @@ import { endPoint } from "./coupon.endPoint.js";
 /**
  * @swagger
  * tags:
- * name: Coupon
+ * - name: Coupon
  * description: Discount coupons management
  */
 

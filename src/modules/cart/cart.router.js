@@ -5,7 +5,7 @@ import { Router } from "express";
 /**
  * @swagger
  * tags:
- * name: Cart
+ * - name: Cart
  * description: User shopping cart management
  */
 

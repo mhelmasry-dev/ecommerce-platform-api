@@ -6,27 +6,40 @@ import { Router } from "express";
 import { fileUpload, fileValidation } from "../../utils/multer.js";
 /**
  * @swagger
- * tags:
- * name: Product
- * description: Product management and Catalog
- */
-
-/**
- * @swagger
  * /product:
- * get:
- * summary: Get all products with Filters (Search, Pagination, Sort)
- * tags: [Product]
- * parameters:
- * - in: query
- * name: page
- * schema: {type: integer}
- * - in: query
- * name: search
- * schema: {type: string}
- * responses:
- * 200:
- * description: List of products
+ *   get:
+ *     summary: Get all products with Filters
+ *     tags: [Product]
+ *     responses:
+ *       200:
+ *         description: Success
+ *   post:
+ *     summary: Create a new product
+ *     tags: [Product]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               price:
+ *                 type: number
+ *               mainImage:
+ *                 type: string
+ *                 format: binary
+ *               subImages:
+ *                 type: array
+ *                 items:
+ *                   type: string
+ *                   format: binary
+ *     responses:
+ *       201:
+ *         description: Created
  */
 const router = Router();
 router.use("/:productId/review", reviews);

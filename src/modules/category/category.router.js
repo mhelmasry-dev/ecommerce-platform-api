@@ -9,30 +9,33 @@ import { endPoint } from "./category.endPoint.js";
 import  subcategoryRouter from "../subcategory/subcategory.router.js";
 /**
  * @swagger
- * tags:
- * name: Category
- * description: Management of product categories
- */
-
-/**
- * @swagger
  * /category:
- * get:
- * summary: Get all categories with subcategories
- * tags: [Category]
- * post:
- * summary: Create a new category (Admin Only)
- * tags: [Category]
- * security:
- * - bearerAuth: []
- * requestBody:
- * content:
- * multipart/form-data:
- * schema:
- * type: object
- * properties:
- * name: {type: string}
- * image: {type: string, format: binary}
+ *   get:
+ *     summary: Get all categories with subcategories
+ *     tags: [Category]
+ *     responses:
+ *       200:
+ *         description: Success
+ *   post:
+ *     summary: Create a new category
+ *     tags: [Category]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               image:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Created
  */
 const router = Router({ mergeParams:true,caseSensitive: true });
 router.use("/:categoryId/subcategory", subcategoryRouter);
