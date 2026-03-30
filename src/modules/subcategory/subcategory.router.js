@@ -5,6 +5,37 @@ import { fileUpload, fileValidation } from "../../utils/multer.js";
 import { Router } from "express";
 import { auth } from "../../middleware/auth.js";
 import { endPoint } from "./subcategory.endPoint.js";
+/**
+ * @swagger
+ * tags:
+ * name: SubCategory
+ * description: Sub-category management within Main Categories
+ */
+
+/**
+ * @swagger
+ * /subCategory:
+ * post:
+ * summary: Create a new sub-category
+ * tags: [SubCategory]
+ * security:
+ * - bearerAuth: []
+ * requestBody:
+ * content:
+ * multipart/form-data:
+ * schema:
+ * type: object
+ * properties:
+ * name: {type: string}
+ * categoryId: {type: string}
+ * image: {type: string, format: binary}
+ * get:
+ * summary: Get all sub-categories
+ * tags: [SubCategory]
+ * responses:
+ * 200:
+ * description: Success
+ */
 const router = Router({ mergeParams: true, caseSensitive: true });
 
 router.get("/", subcategoryController.getSubcategory);

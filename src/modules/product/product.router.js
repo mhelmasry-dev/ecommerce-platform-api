@@ -4,6 +4,30 @@ import reviews from "../reviews/review.router.js";
 import { endpoint } from "./product.endPoint.js";
 import { Router } from "express";
 import { fileUpload, fileValidation } from "../../utils/multer.js";
+/**
+ * @swagger
+ * tags:
+ * name: Product
+ * description: Product management and Catalog
+ */
+
+/**
+ * @swagger
+ * /product:
+ * get:
+ * summary: Get all products with Filters (Search, Pagination, Sort)
+ * tags: [Product]
+ * parameters:
+ * - in: query
+ * name: page
+ * schema: {type: integer}
+ * - in: query
+ * name: search
+ * schema: {type: string}
+ * responses:
+ * 200:
+ * description: List of products
+ */
 const router = Router();
 router.use("/:productId/review", reviews);
 router.post(

@@ -6,6 +6,33 @@ import { fileUpload, fileValidation } from '../../utils/multer.js'
 import { Router } from "express";
 import { endPoint } from './brandendPoint.js';
 import { auth } from '../../middleware/auth.js';
+/**
+ * @swagger
+ * tags:
+ * name: Brand
+ * description: Management of product brands and logos
+ */
+
+/**
+ * @swagger
+ * /brand:
+ * get:
+ * summary: List all available brands
+ * tags: [Brand]
+ * post:
+ * summary: Add a new brand
+ * tags: [Brand]
+ * security:
+ * - bearerAuth: []
+ * requestBody:
+ * content:
+ * multipart/form-data:
+ * schema:
+ * type: object
+ * properties:
+ * name: {type: string}
+ * image: {type: string, format: binary}
+ */
 const router = Router()
 
 router.get("/",

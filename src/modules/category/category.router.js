@@ -7,6 +7,33 @@ import { Router } from "express";
 import { auth, roles } from "../../middleware/auth.js";
 import { endPoint } from "./category.endPoint.js";
 import  subcategoryRouter from "../subcategory/subcategory.router.js";
+/**
+ * @swagger
+ * tags:
+ * name: Category
+ * description: Management of product categories
+ */
+
+/**
+ * @swagger
+ * /category:
+ * get:
+ * summary: Get all categories with subcategories
+ * tags: [Category]
+ * post:
+ * summary: Create a new category (Admin Only)
+ * tags: [Category]
+ * security:
+ * - bearerAuth: []
+ * requestBody:
+ * content:
+ * multipart/form-data:
+ * schema:
+ * type: object
+ * properties:
+ * name: {type: string}
+ * image: {type: string, format: binary}
+ */
 const router = Router({ mergeParams:true,caseSensitive: true });
 router.use("/:categoryId/subcategory", subcategoryRouter);
 

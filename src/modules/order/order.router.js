@@ -5,6 +5,33 @@ import { endpoint } from "./order.endPoint.js";
 import { auth } from "../../middleware/auth.js";
 import { Router } from "express";
 import express from "express";
+/**
+ * @swagger
+ * tags:
+ * name: Order
+ * description: Checkout and Order management
+ */
+
+/**
+ * @swagger
+ * /order:
+ * post:
+ * summary: Create a new order
+ * tags: [Order]
+ * security:
+ * - bearerAuth: []
+ * requestBody:
+ * required: true
+ * content:
+ * application/json:
+ * schema:
+ * type: object
+ * properties:
+ * address: {type: string}
+ * phone: {type: string}
+ * paymentType: {type: string, enum: [card, cash]}
+ * couponName: {type: string}
+ */
 const router = Router();
 
 router.post(
