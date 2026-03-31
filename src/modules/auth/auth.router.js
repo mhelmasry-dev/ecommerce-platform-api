@@ -6,43 +6,54 @@ import passport from "passport";
 /**
  * @swagger
  * tags:
- * - name: Auth
- * description: Login and Signup operations
+ *   - name: Auth
+ *     description: Login and Signup operations
  */
 
 /**
  * @swagger
  * /auth/signup:
- * post:
- * summary: Register a new user
- * tags: [Auth]
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * userName: {type: string}
- * email: {type: string}
- * password: {type: string}
+ *   post:
+ *     summary: Register a new user
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               userName:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Created
  */
 
 /**
  * @swagger
  * /auth/login:
- * post:
- * summary: User Login
- * tags: [Auth]
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * email: {type: string}
- * password: {type: string}
+ *   post:
+ *     summary: User Login
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Success
  */
 const router = Router();
 router.post("/signup", validation(validators.signup), authcontroller.signup);

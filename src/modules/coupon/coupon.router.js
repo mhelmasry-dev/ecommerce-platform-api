@@ -8,28 +8,37 @@ import { endPoint } from "./coupon.endPoint.js";
 /**
  * @swagger
  * tags:
- * - name: Coupon
- * description: Discount coupons management
+ *   - name: Coupon
+ *     description: Discount coupons management
  */
 
 /**
  * @swagger
  * /coupon:
- * post:
- * summary: Create a new discount coupon
- * tags: [Coupon]
- * security:
- * - bearerAuth: []
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * name: {type: string}
- * amount: {type: number, description: "Discount percentage (1-100)"}
- * expire: {type: string, format: date, description: "Expiry date YYYY-MM-DD"}
+ *   post:
+ *     summary: Create a new discount coupon
+ *     tags: [Coupon]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               amount:
+ *                 type: number
+ *                 description: "Discount percentage (1-100)"
+ *               expire:
+ *                 type: string
+ *                 format: date
+ *                 description: "Expiry date YYYY-MM-DD"
+ *     responses:
+ *       201:
+ *         description: Created
  */
 const router = Router();
 

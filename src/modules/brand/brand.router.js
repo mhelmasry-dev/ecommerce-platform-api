@@ -9,6 +9,13 @@ import { auth } from '../../middleware/auth.js';
 const router = Router()
 /**
  * @swagger
+ * tags:
+ *   - name: Brand
+ *     description: Brand management
+ */
+
+/**
+ * @swagger
  * /brand:
  *   get:
  *     summary: Get all brands

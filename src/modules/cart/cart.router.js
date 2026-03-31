@@ -5,27 +5,32 @@ import { Router } from "express";
 /**
  * @swagger
  * tags:
- * - name: Cart
- * description: User shopping cart management
+ *   - name: Cart
+ *     description: User shopping cart management
  */
 
 /**
  * @swagger
  * /cart:
- * post:
- * summary: Add product to cart or update quantity
- * tags: [Cart]
- * security:
- * - bearerAuth: []
- * requestBody:
- * required: true
- * content:
- * application/json:
- * schema:
- * type: object
- * properties:
- * productId: {type: string}
- * quantity: {type: number}
+ *   post:
+ *     summary: Add product to cart or update quantity
+ *     tags: [Cart]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               productId:
+ *                 type: string
+ *               quantity:
+ *                 type: number
+ *     responses:
+ *       200:
+ *         description: Success
  */
 const router = Router();
 router.post("/", auth(endPoint.create), cartController.createCart);

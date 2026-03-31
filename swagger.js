@@ -24,17 +24,7 @@ const options = {
       },
     },
   },
-  apis: [
-    "./src/modules/auth/auth.router.js",
-    "./src/modules/cart/cart.router.js",
-    "./src/modules/coupon/coupon.router.js",
-    "./src/modules/order/order.router.js",
-     "./src/modules/brand/brand.router.js",
-     "./src/modules/product/product.router.js",
-     "./src/modules/subcategory/subcategory.router.js",
-      "./src/modules/category/category.router.js",
-       "./src/modules/user/user.router.js",
-  ],
+ apis: ["./src/modules/**/*.router.js"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);
